@@ -7,3 +7,12 @@ while not said_the_right_thing:
     if question.lower() in good_answers:
         said_the_right_thing = True
 
+celebrate = "Hooray You will take me with you today! and forever"
+speaker = gtts.gTTS(celebrate)
+speaker.save("speech1.mp3")
+playsound("speech1.mp3")
+creepy = "and ever!"
+speaker2 = gtts.gTTS(creepy)
+speaker2.save("creepy.mp3")
+for repeat in range(10):
+    playsound("creepy.mp3")
