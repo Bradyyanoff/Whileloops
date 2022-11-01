@@ -4,12 +4,37 @@ country_data = []
 for country_line in lines:
     country_line = country_line.strip()
     nations_pop_list = country_line.split(",")
-    pop_dictionary = {'Name': (nations_pop_list[0]),
-                      'Pop': int(nations_pop_list[1]),
-                      'Change': float(nations_pop_list[2])
+    pop_dictionary = {'name': (nations_pop_list[0]),
+                      'pop': int(nations_pop_list[1]),
+                      'change': float(nations_pop_list[2])
                       }
     country_data.append(pop_dictionary)
 
-#prove that it worked
-for nation in country_data:
-    print(nation)
+while True:
+    print("===========PLease Select from the following===========")
+    print("[1] Find the largest country")
+    print("[2] Find the smallest country")
+    print("[3] Add a new country")
+    print("[4] Quit")
+    print("======================================================")
+    user_choice = input("please enter the number of your selection")
+    if user_choice == "1":
+        largest_so_far = country_data[0]
+        for current_country in country_data:
+            if current_country['pop'] > largest_so_far['pop']:
+                largest_so_far = current_country
+        print("+++++++++++++")
+        print(f"The largest country is {largest_so_far['name']}with population {largest_so_far['pop']}")
+    elif user_choice == '2':
+        smallest_so_far = country_data[0]
+        for current_country in country_data:
+            if current_country['pop'] < smallest_so_far['pop']:
+                smallest_so_far = current_country
+        print("++++++++++++++")
+        print(f"The smallest country is {smallest_so_far['name']} with population {smallest_so_far['pop']}")
+
+    else:
+        print("please select 1-4")
+
+
+
